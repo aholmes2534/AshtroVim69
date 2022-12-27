@@ -26,7 +26,7 @@ local config = {
   },
 
   -- Set colorscheme to use
-  colorscheme = "default_theme",
+  colorscheme = "catppuccin",
 
   -- Add highlight groups in any theme
   highlights = {
@@ -231,6 +231,7 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
+      { "catppuccin/nvim", as = "catppuccin" },
 
       -- We also support a key value style plugin definition similar to NvChad:
       -- ["ray-x/lsp_signature.nvim"] = {
@@ -261,13 +262,22 @@ local config = {
     -- use mason-lspconfig to configure LSP installations
     ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
       -- ensure_installed = { "sumneko_lua" },
+      ensure_installed = {
+        "bashls",
+        "clangd",
+        "pyright",
+        "sumneko_lua",
+        "ltex",
+        "jdtls",
+        "omnisharp",
+      },
     },
     -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
     ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
-      -- ensure_installed = { "prettier", "stylua" },
+      ensure_installed = { "prettier", "stylua" },
     },
     ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
-      -- ensure_installed = { "python" },
+      ensure_installed = { "python" },
     },
   },
 
